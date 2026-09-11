@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Didi Ever! 💖</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            max-width: 420px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #4a90e2;
+            margin-bottom: 15px;
+        }
+
+        p {
+            color: #555555;
+            margin-bottom: 20px;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .photo-frame {
+            width: 100%;
+            height: 250px;
+            border-radius: 15px;
+            object-fit: cover;
+            border: 4px solid #4a90e2;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #4a90e2;
+            border-radius: 8px;
+            outline: none;
+            font-size: 16px;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        button {
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #357abd;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Step 1: Password Screen -->
+    <div id="login-box" class="card">
+        <h1>Hey Didi! 👑</h1>
+        <p>Aapke liye ek special surprise hai. Enter the password:</p>
+        <input type="password" id="password" placeholder="Password enter karein">
+        <button onclick="checkPassword()">Unlock Surprise</button>
+        <p id="error-msg" class="error hidden">Galat password! Phir se try karein.</p>
+    </div>
+
+    <!-- Step 2: Best Didi Card Screen -->
+    <div id="surprise-box" class="card hidden">
+        <h1>World's Best Didi! 🌸✨</h1>
+        
+        <!-- Aapki photo yahan dikhegi (file name: didi.jpg) -->
+        <img src="didi.jpg" alt="Best Didi" class="photo-frame">
+
+        <p>Aap duniya ki sabse achhi aur caring Didi ho! Thank you har waqt saath dene ke liye. You are truly the best! 💖🎉</p>
+    </div>
+
+    <script>
+        function checkPassword() {
+            // Password yahan set karein
+            const correctPassword = "didi"; 
+
+            const userInput = document.getElementById("password").value;
+            const errorMsg = document.getElementById("error-msg");
+            const loginBox = document.getElementById("login-box");
+            const surpriseBox = document.getElementById("surprise-box");
+
+            if (userInput === correctPassword) {
+                loginBox.classList.add("hidden");
+                surpriseBox.classList.remove("hidden");
+            } else {
+                errorMsg.classList.remove("hidden");
+            }
+        }
+    </script>
+
+</body>
+</html>
